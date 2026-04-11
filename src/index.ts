@@ -132,3 +132,30 @@ main().catch((error) => {
   console.error("Unhandled error:", error);
   process.exit(1);
 });
+
+```typescript
+const commands = [
+  {
+    name: 'chat',
+    description: 'Talk to the Kindroid AI',
+  },
+].map(command => command.toJSON());
+
+const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
+
+try {
+  console.log('Started refreshing application (/) commands.');
+
+  await rest.put(
+    Routes.applicationCommands(process.env.DISCORD_CLIENT_ID),
+    { body: commands },
+  );
+
+  console.log('Successfully reloaded application (/) commands.');
+} catch (error) {
+  console.error(error);
+}
+
+client.login(process.env.DISCORD_TOKEN);
+```
+
