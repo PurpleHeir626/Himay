@@ -133,7 +133,7 @@ main().catch((error) => {
   process.exit(1);
 });
 
-```typescript
+`typescript
 const commands = [
   {
     name: 'chat',
