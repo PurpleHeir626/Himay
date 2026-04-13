@@ -156,7 +156,7 @@ try {
   console.error(error);
 }
 
-```typescript
+`typescript
 import { REST, Routes } from 'discord.js';
 
 // Register slash commands
