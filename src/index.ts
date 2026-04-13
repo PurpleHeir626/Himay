@@ -156,6 +156,32 @@ try {
   console.error(error);
 }
 
+```typescript
+import { REST, Routes } from 'discord.js';
+
+// Register slash commands
+rest.put(
+  Routes.applicationCommands(process.env.CLIENT_ID),
+  { body: [
+    {
+      name: 'ping',
+      description: 'Replies with Pong!',
+    },
+  ] },
+);
+
+// Listen for slash command interactions
+client.on('interactionCreate', async interaction => {
+  if (!interaction.isChatInputCommand()) return;
+
+  const { commandName } = interaction;
+
+  if (commandName === 'ping') {
+    await interaction.reply('Pong!');
+  }
+});
+```
+
 client.login(process.env.DISCORD_TOKEN);
 ```
 
