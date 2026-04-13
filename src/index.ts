@@ -156,7 +156,7 @@ try {
   console.error(error);
 }
 
-`typescript
+
 import { REST, Routes } from 'discord.js';
 
 // Register slash commands
@@ -180,8 +180,8 @@ client.on('interactionCreate', async interaction => {
     await interaction.reply('Pong!');
   }
 });
-```
+
 
 client.login(process.env.DISCORD_TOKEN);
-```
+
 
